@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Load Dataset</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-upload me-2"></i>
+                    Dataset Loading
+                </h5>
+            </div>
+            <div class="card-body">
+                <form method="POST" class="mb-3">
+                    <div class="mb-3">
+                        <label class="form-label">E-commerce Transaction Data</label>
+                        <p class="text-muted">This demo uses a pre-generated sample dataset with realistic e-commerce transactions.</p>
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle me-2"></i>
+                            The sample dataset contains transactions with products like laptops, smartphones, accessories, and office supplies with realistic buying patterns.
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-database me-2"></i>
+                        Load Sample Dataset
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="mb-0">Dataset Requirements</h6>
+            </div>
+            <div class="card-body">
+                <p class="small">The dataset should contain the following columns:</p>
+                <ul class="small">
+                    <li><strong>InvoiceNo:</strong> Transaction ID</li>
+                    <li><strong>StockCode:</strong> Product code</li>
+                    <li><strong>Description:</strong> Product name</li>
+                    <li><strong>Quantity:</strong> Items purchased</li>
+                    <li><strong>InvoiceDate:</strong> Transaction date</li>
+                    <li><strong>UnitPrice:</strong> Price per unit</li>
+                    <li><strong>CustomerID:</strong> Customer identifier</li>
+                    <li><strong>Country:</strong> Customer location</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-header">
+                <h6 class="mb-0">HDFS Integration</h6>
+            </div>
+            <div class="card-body">
+                <p class="small">Once loaded, the dataset can be:</p>
+                <ul class="small">
+                    <li>Stored in Hadoop HDFS</li>
+                    <li>Processed using MapReduce</li>
+                    <li>Analyzed with Spark</li>
+                    <li>Visualized in real-time</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

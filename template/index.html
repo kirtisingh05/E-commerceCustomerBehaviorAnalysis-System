@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron bg-primary text-white p-5 rounded mb-4">
+    <div class="container">
+        <h1 class="display-4">E-commerce Customer Behavior Analysis</h1>
+        <p class="lead">Comprehensive Market Basket Analysis using Big Data Mining Techniques</p>
+        <hr class="my-4">
+        <p>Discover hidden patterns in customer purchasing behavior using advanced data mining algorithms including Apriori and FP-Growth.</p>
+        <a class="btn btn-light btn-lg" href="{{ url_for('upload_data') }}" role="button">
+            <i class="fas fa-play me-2"></i>Get Started
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="fas fa-algorithm text-primary me-2"></i>
+                    Advanced Algorithms
+                </h5>
+                <p class="card-text">Implement both Apriori and FP-Growth algorithms for frequent pattern mining and association rule generation.</p>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-success me-2"></i>Apriori Algorithm</li>
+                    <li><i class="fas fa-check text-success me-2"></i>FP-Growth Algorithm</li>
+                    <li><i class="fas fa-check text-success me-2"></i>Association Rules</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="fas fa-database text-success me-2"></i>
+                    Big Data Integration
+                </h5>
+                <p class="card-text">Simulate Hadoop HDFS operations for storing and retrieving large-scale e-commerce transaction data.</p>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-success me-2"></i>HDFS Simulation</li>
+                    <li><i class="fas fa-check text-success me-2"></i>Scalable Processing</li>
+                    <li><i class="fas fa-check text-success me-2"></i>Data Pipeline</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="fas fa-chart-line text-warning me-2"></i>
+                    Interactive Visualizations
+                </h5>
+                <p class="card-text">Rich visualizations and dashboards to understand customer behavior patterns and business insights.</p>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-success me-2"></i>Interactive Charts</li>
+                    <li><i class="fas fa-check text-success me-2"></i>Real-time Analytics</li>
+                    <li><i class="fas fa-check text-success me-2"></i>Business Intelligence</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                <h5 class="mb-0">
+                    <i class="fas fa-info-circle me-2"></i>
+                    Project Features
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>Data Mining Techniques:</h6>
+                        <ul>
+                            <li>Frequent Pattern Mining</li>
+                            <li>Association Rules Discovery</li>
+                            <li>Support, Confidence, and Lift Metrics</li>
+                            <li>Customer Segmentation</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Technology Stack:</h6>
+                        <ul>
+                            <li>Python Flask Framework</li>
+                            <li>MLxtend Library for Mining</li>
+                            <li>Plotly for Visualizations</li>
+                            <li>Bootstrap for UI/UX</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

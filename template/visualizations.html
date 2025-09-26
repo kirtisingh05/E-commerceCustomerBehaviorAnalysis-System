@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Data Visualizations</h1>
+</div>
+
+<div class="row">
+    {% if plots.top_items %}
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-chart-bar me-2"></i>
+                    Most Popular Products
+                </h5>
+            </div>
+            <div class="card-body">
+                <div id="topItemsPlot"></div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if plots.rules_scatter %}
+    <div class="col-12 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-scatter-chart me-2"></i>
+                    Association Rules Analysis
+                </h5>
+            </div>
+            <div class="card-body">
+                <div id="rulesScatterPlot"></div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<div class="row">
+    {% if plots.country_distribution %}
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-globe me-2"></i>
+                    Customer Distribution by Country
+                </h5>
+            </div>
+            <div class="card-body">
+                <div id="countryDistributionPlot"></div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if plots.monthly_trend %}
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-chart-line me-2"></i>
+                    Monthly Transaction Trend
+                </h5>
+            </div>
+            <div class="card-body">
+                <div id="monthlyTrendPlot"></div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{% if not plots %}
+<div class="alert alert-warning">
+    <i class="fas fa-exclamation-triangle me-2"></i>
+    No visualizations available. Please load and analyze data first.
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+$(document).ready(function() {
+    {% if plots.top_items %}
+    var topItemsData = {{ plots.top_items|safe }};
+    Plotly.newPlot('topItemsPlot', topItemsData.data, topItemsData.layout, {responsive: true});
+    {% endif %}
+
+    {% if plots.rules_scatter %}
+    var rulesScatterData = {{ plots.rules_scatter|safe }};
+    Plotly.newPlot('rulesScatterPlot', rulesScatterData.data, rulesScatterData.layout, {responsive: true});
+    {% endif %}
+
+    {% if plots.country_distribution %}
+    var countryData = {{ plots.country_distribution|safe }};
+    Plotly.newPlot('countryDistributionPlot', countryData.data, countryData.layout, {responsive: true});
+    {% endif %}
+
+    {% if plots.monthly_trend %}
+    var monthlyData = {{ plots.monthly_trend|safe }};
+    Plotly.newPlot('monthlyTrendPlot', monthlyData.data, monthlyData.layout, {responsive: true});
+    {% endif %}
+});
+</script>
+{% endblock %}

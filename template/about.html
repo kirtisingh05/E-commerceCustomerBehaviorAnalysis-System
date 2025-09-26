@@ -1,0 +1,233 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">About This Project</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-info-circle me-2"></i>
+                    E-commerce Customer Behavior Analysis System
+                </h5>
+            </div>
+            <div class="card-body">
+                <p>This comprehensive system demonstrates <strong>Big Data Mining</strong> techniques for analyzing e-commerce customer behavior using advanced algorithms and modern web technologies.</p>
+
+                <h6 class="mt-4">Key Features:</h6>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul>
+                            <li><strong>Market Basket Analysis</strong> using Apriori and FP-Growth algorithms</li>
+                            <li><strong>Association Rules Mining</strong> to discover buying patterns</li>
+                            <li><strong>Interactive Visualizations</strong> with Plotly.js</li>
+                            <li><strong>Customer Behavior Analytics</strong></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul>
+                            <li><strong>HDFS Integration Simulation</strong> for big data storage</li>
+                            <li><strong>Real-time Analysis</strong> with configurable parameters</li>
+                            <li><strong>Responsive Web Interface</strong> with Bootstrap</li>
+                            <li><strong>Educational Content</strong> explaining concepts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-cogs me-2"></i>
+                    Technical Implementation
+                </h5>
+            </div>
+            <div class="card-body">
+                <h6>Algorithms Implemented:</h6>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h6 class="card-title"><i class="fas fa-list me-2"></i>Apriori Algorithm</h6>
+                                <p class="small card-text">
+                                    A classic algorithm for frequent item set mining that uses a bottom-up approach. 
+                                    It generates candidate itemsets and uses the downward closure property to prune the search space.
+                                </p>
+                                <p class="small"><strong>Time Complexity:</strong> O(2^n) in worst case</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h6 class="card-title"><i class="fas fa-tree me-2"></i>FP-Growth Algorithm</h6>
+                                <p class="small card-text">
+                                    An efficient algorithm that uses a compact tree structure (FP-tree) to represent the database 
+                                    and mine frequent patterns without generating candidate itemsets.
+                                </p>
+                                <p class="small"><strong>Time Complexity:</strong> O(n^2) typically faster than Apriori</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h6 class="mt-4">Technology Stack:</h6>
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Technology</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Backend Framework</td>
+                                <td>Python Flask</td>
+                                <td>Web application server and API</td>
+                            </tr>
+                            <tr>
+                                <td>Data Mining</td>
+                                <td>MLxtend Library</td>
+                                <td>Apriori and FP-Growth implementation</td>
+                            </tr>
+                            <tr>
+                                <td>Data Processing</td>
+                                <td>Pandas & NumPy</td>
+                                <td>Data manipulation and analysis</td>
+                            </tr>
+                            <tr>
+                                <td>Visualizations</td>
+                                <td>Plotly.js</td>
+                                <td>Interactive charts and graphs</td>
+                            </tr>
+                            <tr>
+                                <td>Frontend</td>
+                                <td>Bootstrap 5 + JavaScript</td>
+                                <td>Responsive UI and user interactions</td>
+                            </tr>
+                            <tr>
+                                <td>Big Data Simulation</td>
+                                <td>Python subprocess</td>
+                                <td>HDFS operations simulation</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="mb-0">Project Statistics</h6>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    <li><strong>Lines of Code:</strong> 1000+</li>
+                    <li><strong>HTML Templates:</strong> 7</li>
+                    <li><strong>Python Modules:</strong> 2</li>
+                    <li><strong>JavaScript Functions:</strong> 15+</li>
+                    <li><strong>CSS Styles:</strong> Custom responsive design</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-header">
+                <h6 class="mb-0">Educational Value</h6>
+            </div>
+            <div class="card-body">
+                <p class="small">This project demonstrates:</p>
+                <ul class="small">
+                    <li>Data mining concepts in practice</li>
+                    <li>Big data processing simulation</li>
+                    <li>Web application development</li>
+                    <li>Algorithm comparison and analysis</li>
+                    <li>Business intelligence applications</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-header">
+                <h6 class="mb-0">Use Cases</h6>
+            </div>
+            <div class="card-body">
+                <ul class="small">
+                    <li><strong>Retail:</strong> Product recommendation systems</li>
+                    <li><strong>E-commerce:</strong> Cross-selling strategies</li>
+                    <li><strong>Marketing:</strong> Customer segmentation</li>
+                    <li><strong>Inventory:</strong> Stock optimization</li>
+                    <li><strong>Research:</strong> Consumer behavior studies</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-header">
+                <h6 class="mb-0">Metrics Explained</h6>
+            </div>
+            <div class="card-body">
+                <div class="small">
+                    <p><strong>Support:</strong> Frequency of itemset occurrence</p>
+                    <p><strong>Confidence:</strong> Conditional probability of rules</p>
+                    <p><strong>Lift:</strong> Strength of association between items</p>
+                    <p class="text-muted">Higher values indicate stronger patterns</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-lightbulb me-2"></i>
+                    Business Applications
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <i class="fas fa-shopping-cart fa-2x text-primary mb-2"></i>
+                            <h6>Product Recommendations</h6>
+                            <p class="small">Suggest complementary products based on purchase history</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <i class="fas fa-store fa-2x text-success mb-2"></i>
+                            <h6>Store Layout Optimization</h6>
+                            <p class="small">Position frequently bought items together for increased sales</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <i class="fas fa-tags fa-2x text-warning mb-2"></i>
+                            <h6>Promotional Strategies</h6>
+                            <p class="small">Create bundle offers and targeted promotions</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <i class="fas fa-chart-line fa-2x text-info mb-2"></i>
+                            <h6>Inventory Management</h6>
+                            <p class="small">Optimize stock levels based on buying patterns</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

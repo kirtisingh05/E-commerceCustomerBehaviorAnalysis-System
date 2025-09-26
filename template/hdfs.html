@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Hadoop HDFS Simulation</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-database me-2"></i>
+                    Big Data Storage Operations
+                </h5>
+            </div>
+            <div class="card-body">
+                <p class="mb-4">Simulate Hadoop Distributed File System (HDFS) operations for storing and retrieving large-scale e-commerce transaction data.</p>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h6><i class="fas fa-upload me-2"></i>Store to HDFS</h6>
+                                <p class="small">Upload transaction data to Hadoop Distributed File System for distributed processing.</p>
+                                <button class="btn btn-primary btn-sm" onclick="performHDFSOperation('store')">
+                                    <i class="fas fa-cloud-upload-alt me-1"></i>Store Data
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h6><i class="fas fa-download me-2"></i>Retrieve from HDFS</h6>
+                                <p class="small">Retrieve transaction data from HDFS for analysis and processing.</p>
+                                <button class="btn btn-success btn-sm" onclick="performHDFSOperation('retrieve')">
+                                    <i class="fas fa-cloud-download-alt me-1"></i>Retrieve Data
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-terminal me-2"></i>
+                    Operation Log
+                </h5>
+            </div>
+            <div class="card-body">
+                <div id="operationLog" class="border p-3" style="background-color: #f8f9fa; min-height: 200px; font-family: monospace;">
+                    <div class="text-muted">HDFS operations will be logged here...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="mb-0">HDFS Architecture</h6>
+            </div>
+            <div class="card-body">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8IS0tIE5hbWVOb2RlIC0tPgogIDxyZWN0IHg9IjEwMCIgeT0iMjAiIHdpZHRoPSIxMDAiIGhlaWdodD0iNDAiIGZpbGw9IiNmZjcwNDMiLz4KICA8dGV4dCB4PSIxNTAiIHk9IjQ1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5OYW1lTm9kZTwvdGV4dD4KICA8IS0tIERhdGFOb2RlcyAtLT4KICA8cmVjdCB4PSIyMCIgeT0iMTAwIiB3aWR0aD0iODAiIGhlaWdodD0iNDAiIGZpbGw9IiM0Y2FmNTAiLz4KICA8dGV4dCB4PSI2MCIgeT0iMTI1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5EYXRhTm9kZSAxPC90ZXh0PgogIDxyZWN0IHg9IjExMCIgeT0iMTAwIiB3aWR0aD0iODAiIGhlaWdodD0iNDAiIGZpbGw9IiM0Y2FmNTAiLz4KICA8dGV4dCB4PSIxNTAiIHk9IjEyNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RGF0YU5vZGUgMjwvdGV4dD4KICA8cmVjdCB4PSIyMDAiIHk9IjEwMCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjNGNhZjUwIi8+CiAgPHRleHQgeD0iMjQwIiB5PSIxMjUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkRhdGFOb2RlIDM8L3RleHQ+CiAgPCEtLSBDb25uZWN0aW9ucyAtLT4KICA8bGluZSB4MT0iMTUwIiB5MT0iNjAiIHgyPSI2MCIgeTI9IjEwMCIgc3Ryb2tlPSIjMzMzIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8bGluZSB4MT0iMTUwIiB5MT0iNjAiIHgyPSIxNTAiIHkyPSIxMDAiIHN0cm9rZT0iIzMzMyIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPGxpbmUgeDE9IjE1MCIgeTE9IjYwIiB4Mj0iMjQwIiB5Mj0iMTAwIiBzdHJva2U9IiMzMzMiIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4=" alt="HDFS Architecture" class="img-fluid">
+                <p class="small mt-2">HDFS consists of a NameNode that manages metadata and DataNodes that store actual data blocks.</p>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-header">
+                <h6 class="mb-0">Key Features</h6>
+            </div>
+            <div class="card-body">
+                <ul class="small">
+                    <li><strong>Fault Tolerance:</strong> Data replication across nodes</li>
+                    <li><strong>Scalability:</strong> Handle petabytes of data</li>
+                    <li><strong>High Throughput:</strong> Optimized for batch processing</li>
+                    <li><strong>Distributed:</strong> Data stored across cluster</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-header">
+                <h6 class="mb-0">Commands Simulated</h6>
+            </div>
+            <div class="card-body">
+                <code class="small">
+                    hdfs dfs -put local_file /hdfs_path<br>
+                    hdfs dfs -get /hdfs_path local_file<br>
+                    hdfs dfs -ls /hdfs_path<br>
+                    hdfs dfs -mkdir /hdfs_directory
+                </code>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function performHDFSOperation(operation) {
+    var logDiv = $('#operationLog');
+    var timestamp = new Date().toLocaleTimeString();
+
+    // Add loading message
+    logDiv.append('<div class="text-info">[' + timestamp + '] Starting HDFS ' + operation + ' operation...</div>');
+
+    $.ajax({
+        url: '/hdfs-operation',
+        method: 'POST',
+        data: {operation: operation},
+        success: function(response) {
+            logDiv.append('<div class="text-success">[' + new Date().toLocaleTimeString() + '] ' + response.message + '</div>');
+            if (response.path) {
+                logDiv.append('<div class="text-muted">[INFO] Path: ' + response.path + '</div>');
+            }
+            if (response.size) {
+                logDiv.append('<div class="text-muted">[INFO] Size: ' + response.size + '</div>');
+            }
+        },
+        error: function(xhr) {
+            logDiv.append('<div class="text-danger">[' + new Date().toLocaleTimeString() + '] Error: ' + xhr.responseJSON.error + '</div>');
+        }
+    });
+}
+
+$(document).ready(function() {
+    // Welcome message
+    var logDiv = $('#operationLog');
+    logDiv.html('<div class="text-muted">[SYSTEM] HDFS Simulation Ready</div>');
+    logDiv.append('<div class="text-muted">[SYSTEM] Click buttons above to simulate HDFS operations</div>');
+});
+</script>
+{% endblock %}
